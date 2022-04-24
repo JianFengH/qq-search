@@ -1,0 +1,36 @@
+/**
+* qq user style
+**/
+.qq-box {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+  
+.qq-avatar {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.qq-info {
+  margin-left: 10px;
+}
+
+.qq-name {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.qq-number {
+  font-size: 12px;
+  color: #999;
+}
+
+.qq-error {
+  padding: 10px;
+  color: red;
+  text-align: center;
+}
