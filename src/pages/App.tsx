@@ -13,12 +13,12 @@ function Loading() {
 
 function App() {
   const [qq, setQq] = useState('');
-  const [qqUser, setQqUser] = useState<QqUserProps>();
+  const [qqUser, setQqUser] = useState<QqUserProps | null>(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (qq === '') {
-      return setQqUser(undefined);
+      return setQqUser(null);
     }
 
     let ignore = false;
