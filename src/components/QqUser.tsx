@@ -1,16 +1,21 @@
 import React from 'react';
 import './QqUser.css';
 
+enum QqCode {
+  Success = 1,
+  ServerException = 201702,
+}
+
 export interface QqUserProps {
+  code: QqCode,
+  msg?: string,
   qq?: string,
   name?: string,
   qlogo?: string,
-  code: number,
-  msg?: string,
 }
 
 function QqUser(props: QqUserProps) {
-  if (props.code === 1) {
+  if (props.code === QqCode.Success) {
     return (
       <div className='qq-box'>
         <img className='qq-avatar' src={props.qlogo} alt={props.name} />
