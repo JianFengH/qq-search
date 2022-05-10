@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import QqUser from '../components/QqUser';
+import QqUser, { QqUserProps } from '../components/QqUser';
 
 function Loading() {
   return (
@@ -13,12 +13,12 @@ function Loading() {
 
 function App() {
   const [qq, setQq] = useState('');
-  const [qqUser, setQqUser] = useState(null);
+  const [qqUser, setQqUser] = useState<QqUserProps>();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (qq === '') {
-      return setQqUser(null);
+      return setQqUser(undefined);
     }
 
     let ignore = false;
@@ -39,7 +39,7 @@ function App() {
       }, 500);
     }
 
-    return () => { 
+    return () => {
       ignore = true;
       clearTimeout(timer);
     };

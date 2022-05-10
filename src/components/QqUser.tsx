@@ -1,10 +1,10 @@
 import React from 'react';
 import './QqUser.css';
 
-interface QqUserProps {
-  qq: string,
-  name: string,
-  qlogo: string,
+export interface QqUserProps {
+  qq?: string,
+  name?: string,
+  qlogo?: string,
   code: number,
   msg?: string,
 }
