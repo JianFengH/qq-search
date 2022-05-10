@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import QqUser from '../../components/QqUser/QqUser';
+import QqUser from '../components/QqUser';
 
 function Loading() {
   return (
@@ -17,15 +17,14 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const _qq = qq.trim();
-    if (!_qq) {
+    if (qq === '') {
       return setQqUser(null);
     }
 
     let ignore = false;
-    setLoading(true);
     async function fetchQqUser() {
-      const response = await fetch(`https://api.uomg.com/api/qq.info?qq=${_qq}`);
+      setLoading(true);
+      const response = await fetch(`https://api.uomg.com/api/qq.info?qq=${qq}`);
       const json = await response.json();
       if (!ignore) {
         setLoading(false);
@@ -33,8 +32,17 @@ function App() {
       }
     }
 
-    fetchQqUser();
-    return () => { ignore = true; };
+    let timer: NodeJS.Timeout;
+    if (qq.length >= 5 && qq.length <= 12) {
+      timer = setTimeout(() => {
+        fetchQqUser();
+      }, 500);
+    }
+
+    return () => { 
+      ignore = true;
+      clearTimeout(timer);
+    };
   }, [qq]);
 
   return (
@@ -42,7 +50,7 @@ function App() {
       <div className='app-header'>
         <span>QQ</span>
         <input className='search-input' placeholder='please input' value={qq} onChange={(e) => {
-          setQq(e.target.value);
+          setQq(e.target.value.trim());
         }} />
       </div>
 
