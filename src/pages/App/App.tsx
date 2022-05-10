@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import QqUser from './QqUser';
+import QqUser from '../../components/QqUser/QqUser';
 
 function Loading() {
   return (
