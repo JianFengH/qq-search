@@ -28,8 +28,14 @@
       "react-app/jest"
     ],
     "rules": {
-      "semi": ["warn", "always"],
-      "eqeqeq": ["error", "always"]
+      "semi": [
+        "warn",
+        "always"
+      ],
+      "eqeqeq": [
+        "error",
+        "always"
+      ]
     }
   },
   "browserslist": {
