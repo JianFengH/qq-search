@@ -1,7 +1,7 @@
 type UserProps = {
-  name: string
-  age: number
-  sex: string
+  name: string;
+  age: number;
+  sex: string;
 }
 
 type keysOfUser = keyof UserProps;
@@ -12,7 +12,7 @@ function TestUser() {
   console.log(key);
   return <>
     {key}
-  </>
+  </>;
 }
 
 export default TestUser;

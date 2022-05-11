@@ -24,7 +24,7 @@ it('renders without crashing', () => {
     msg: '',
   };
   act(() => {
-    container && ReactDOM.createRoot(container).render(<QqUser {...fakeUser} />)
+    container && ReactDOM.createRoot(container).render(<QqUser {...fakeUser} />);
   });
   const qqAvatar = container?.querySelector('.qq-avatar');
   expect(qqAvatar).toBeInTheDocument();
